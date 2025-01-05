@@ -1,5 +1,0 @@
-disassembly.showSource=false
-disassembly.showSymbols=false
-eclipse.preferences.version=1
-rulerContributions=org.eclipse.cdt.dsf.ui.disassemblyColumn.opcodes
-useAnnotationsPrefPage=true
