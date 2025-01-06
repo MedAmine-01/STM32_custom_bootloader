@@ -16,8 +16,7 @@ int read_bootloader_reply(uint8_t command_code)
         //CRC of last command was good .. received ACK and "len to follow"
         len_to_follow=ack[1];
         printf("\n\n   CRC : SUCCESS Len : %d\n",len_to_follow);
-
-        switch(0x50 | command_code)
+        switch(command_code)
         {
         case COMMAND_BL_GET_VER:
              process_COMMAND_BL_GET_VER(len_to_follow);

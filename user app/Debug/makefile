@@ -55,6 +55,9 @@ user\ app.list \
 OBJCOPY_HEX += \
 user\ app.hex \
 
+OBJCOPY_BIN += \
+user\ app.bin \
+
 
 # All Target
 all: main-build
@@ -83,12 +86,17 @@ user\ app.hex: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
 	@echo 'Finished building: $@'
 	@echo ' '
 
+user\ app.bin: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-objcopy  -O binary $(EXECUTABLES) "user app.bin"
+	@echo 'Finished building: $@'
+	@echo ' '
+
 # Other Targets
 clean:
-	-$(RM) default.size.stdout user\ app.elf user\ app.hex user\ app.list user\ app.map user\\ app.elf
+	-$(RM) default.size.stdout user\ app.bin user\ app.elf user\ app.hex user\ app.list user\ app.map user\\ app.elf
 	-@echo ' '
 
-secondary-outputs: $(SIZE_OUTPUT) $(OBJDUMP_LIST) $(OBJCOPY_HEX)
+secondary-outputs: $(SIZE_OUTPUT) $(OBJDUMP_LIST) $(OBJCOPY_HEX) $(OBJCOPY_BIN)
 
 fail-specified-linker-script-missing:
 	@echo 'Error: Cannot find the specified linker script. Check the linker settings in the build configuration.'

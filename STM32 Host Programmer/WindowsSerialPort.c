@@ -3,7 +3,7 @@
 HANDLE hComm;
 
 void serial_port_configuration(void){
-    char ComPortName[]= "\\\\.\\COM3";
+    char ComPortName[]= "\\\\.\\COM20";
     BOOL status;
 
     /*--------------Opening the serial port-----------------*/
@@ -16,7 +16,7 @@ void serial_port_configuration(void){
                        0,                               //non overlapped I/O
                        NULL);                           //null for com devices
 
-    if(hComm = INVALID_HANDLE_VALUE){
+    if(hComm == INVALID_HANDLE_VALUE){
         printf("\n  Error! - Port %s can't be opened", ComPortName);
         printf("\n  Check board connection and Port number\n");
         exit(-1);
@@ -42,7 +42,7 @@ void serial_port_configuration(void){
     dcbSerialParams.StopBits = ONESTOPBIT;
     dcbSerialParams.Parity = NOPARITY;
 
-    status = SetCommStatus(hComm, &dcbSerialParams); //configuring the port according to the settings above
+    status = SetCommState(hComm, &dcbSerialParams); //configuring the port according to the settings above
 
     if(status == FALSE){
         printf("\n  Error! in DCB structure");

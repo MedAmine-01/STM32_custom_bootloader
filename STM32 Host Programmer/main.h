@@ -42,13 +42,13 @@ void open_the_file(void);
 uint32_t calc_file_len(void);
 
 //BL Commands
-#define COMMAND_BL_GET_VER                  0x51
-#define COMMAND_BL_GET_HELP                 0x52
-#define COMMAND_BL_GET_CID                  0x53
-#define COMMAND_BL_GET_RDP_STATUS           0x54
-#define COMMAND_BL_GO_TO_ADDR               0x55
-#define COMMAND_BL_FLASH_ERASE              0x56
-#define COMMAND_BL_MEM_WRITE                0x57
+#define COMMAND_BL_GET_VER                  0x31
+#define COMMAND_BL_GET_HELP                 0x32
+#define COMMAND_BL_GET_CID                  0x33
+#define COMMAND_BL_GET_RDP_STATUS           0x34
+#define COMMAND_BL_GO_TO_ADDR               0x35
+#define COMMAND_BL_FLASH_ERASE              0x36
+#define COMMAND_BL_MEM_WRITE                0x37
 #define COMMAND_BL_EN_R_W_PROTECT           0x58
 #define COMMAND_BL_MEM_READ                 0x59
 #define COMMAND_BL_READ_SECTOR_P_STATUS     0x5A

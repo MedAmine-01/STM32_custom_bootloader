@@ -1,17 +1,98 @@
-01:45:19 **** Incremental Build of configuration Debug for project custom bootloader ****
+23:40:08 **** Incremental Build of configuration Debug for project custom bootloader ****
 make -j16 all 
 arm-none-eabi-gcc "../Core/Src/bootloader_commands.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F401xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/bootloader_commands.d" -MT"Core/Src/bootloader_commands.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/bootloader_commands.o"
+../Core/Src/bootloader_commands.c: In function 'bootloader_handle_getver_cmd':
+../Core/Src/bootloader_commands.c:46:34: warning: pointer targets in passing argument 1 of 'bootloader_verify_crc' differ in signedness [-Wpointer-sign]
+   46 |         if(bootloader_verify_crc(&bl_rx_buffer[0],command_packet_len-4,host_crc)){
+      |                                  ^~~~~~~~~~~~~~~~
+      |                                  |
+      |                                  char *
+../Core/Src/bootloader_commands.c:24:48: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'char *'
+   24 | static uint8_t bootloader_verify_crc(uint8_t * pData, uint32_t len, uint32_t crc_host){
+      |                                      ~~~~~~~~~~^~~~~
+../Core/Src/bootloader_commands.c: In function 'bootloader_handle_gethelp_cmd':
+../Core/Src/bootloader_commands.c:73:42: warning: pointer targets in passing argument 1 of 'bootloader_verify_crc' differ in signedness [-Wpointer-sign]
+   73 |                 if(bootloader_verify_crc(&bl_rx_buffer[0],command_packet_len-4,host_crc)){
+      |                                          ^~~~~~~~~~~~~~~~
+      |                                          |
+      |                                          char *
+../Core/Src/bootloader_commands.c:24:48: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'char *'
+   24 | static uint8_t bootloader_verify_crc(uint8_t * pData, uint32_t len, uint32_t crc_host){
+      |                                      ~~~~~~~~~~^~~~~
+../Core/Src/bootloader_commands.c: In function 'bootloader_handle_getcid_cmd':
+../Core/Src/bootloader_commands.c:93:50: warning: pointer targets in passing argument 1 of 'bootloader_verify_crc' differ in signedness [-Wpointer-sign]
+   93 |                         if(bootloader_verify_crc(&bl_rx_buffer[0],command_packet_len-4,host_crc)){
+      |                                                  ^~~~~~~~~~~~~~~~
+      |                                                  |
+      |                                                  char *
+../Core/Src/bootloader_commands.c:24:48: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'char *'
+   24 | static uint8_t bootloader_verify_crc(uint8_t * pData, uint32_t len, uint32_t crc_host){
+      |                                      ~~~~~~~~~~^~~~~
+../Core/Src/bootloader_commands.c: In function 'bootloader_handle_gotoaddress_cmd':
+../Core/Src/bootloader_commands.c:136:34: warning: pointer targets in passing argument 1 of 'bootloader_verify_crc' differ in signedness [-Wpointer-sign]
+  136 |         if(bootloader_verify_crc(&bl_rx_buffer[0],command_packet_len-4,host_crc)){
+      |                                  ^~~~~~~~~~~~~~~~
+      |                                  |
+      |                                  char *
+../Core/Src/bootloader_commands.c:24:48: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'char *'
+   24 | static uint8_t bootloader_verify_crc(uint8_t * pData, uint32_t len, uint32_t crc_host){
+      |                                      ~~~~~~~~~~^~~~~
+../Core/Src/bootloader_commands.c: In function 'bootloader_handle_flasherase_cmd':
+../Core/Src/bootloader_commands.c:191:34: warning: pointer targets in passing argument 1 of 'bootloader_verify_crc' differ in signedness [-Wpointer-sign]
+  191 |         if(bootloader_verify_crc(&bl_rx_buffer[0],command_packet_len-4,host_crc)){
+      |                                  ^~~~~~~~~~~~~~~~
+      |                                  |
+      |                                  char *
+../Core/Src/bootloader_commands.c:24:48: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'char *'
+   24 | static uint8_t bootloader_verify_crc(uint8_t * pData, uint32_t len, uint32_t crc_host){
+      |                                      ~~~~~~~~~~^~~~~
+../Core/Src/bootloader_commands.c: In function 'execute_memory_write':
+../Core/Src/bootloader_commands.c:210:77: warning: passing argument 2 of 'HAL_FLASH_Program' makes integer from pointer without a cast [-Wint-conversion]
+  210 |                 status=HAL_FLASH_Program(FLASH_TYPEPROGRAM_BYTE, destination+i, source[i]);
+      |                                                                  ~~~~~~~~~~~^~
+      |                                                                             |
+      |                                                                             uint8_t * {aka unsigned char *}
+In file included from ../Core/Inc/stm32f4xx_hal_conf.h:335,
+                 from ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:29,
+                 from ../Core/Inc/bootloader_commands.h:11,
+                 from ../Core/Src/bootloader_commands.c:1:
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash.h:306:68: note: expected 'uint32_t' {aka 'long unsigned int'} but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+  306 | HAL_StatusTypeDef HAL_FLASH_Program(uint32_t TypeProgram, uint32_t Address, uint64_t Data);
+      |                                                           ~~~~~~~~~^~~~~~~
+../Core/Src/bootloader_commands.c: In function 'bootloader_handle_memwrite_cmd':
+../Core/Src/bootloader_commands.c:231:76: warning: pointer targets in passing argument 1 of 'execute_memory_write' differ in signedness [-Wpointer-sign]
+  231 |                                         write_status= execute_memory_write(&bl_rx_buffer[7],memory_address,playload_len);
+      |                                                                            ^~~~~~~~~~~~~~~~
+      |                                                                            |
+      |                                                                            char *
+../Core/Src/bootloader_commands.c:206:47: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'char *'
+  206 | static uint8_t execute_memory_write(uint8_t * source , uint8_t *destination, uint8_t len){
+      |                                     ~~~~~~~~~~^~~~~~
+../Core/Src/bootloader_commands.c:231:93: warning: passing argument 2 of 'execute_memory_write' makes pointer from integer without a cast [-Wint-conversion]
+  231 |                                         write_status= execute_memory_write(&bl_rx_buffer[7],memory_address,playload_len);
+      |                                                                                             ^~~~~~~~~~~~~~
+      |                                                                                             |
+      |                                                                                             uint32_t {aka long unsigned int}
+../Core/Src/bootloader_commands.c:206:65: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'uint32_t' {aka 'long unsigned int'}
+  206 | static uint8_t execute_memory_write(uint8_t * source , uint8_t *destination, uint8_t len){
+      |                                                        ~~~~~~~~~^~~~~~~~~~~
+../Core/Src/bootloader_commands.c:225:18: warning: unused variable 'host_crc' [-Wunused-variable]
+  225 |         uint32_t host_crc = * ((uint32_t *) (bl_rx_buffer+command_packet_len-4));
+      |                  ^~~~~~~~
+../Core/Src/bootloader_commands.c:220:40: warning: variable 'checksum' set but not used [-Wunused-but-set-variable]
+  220 |         uint8_t len = bl_rx_buffer[0], checksum;
+      |                                        ^~~~~~~~
 arm-none-eabi-gcc -o "custom bootloader.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\user\STM32CubeIDE\workspace_1.16.0\custom bootloader\STM32F401RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="custom bootloader.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 Finished building target: custom bootloader.elf
  
 arm-none-eabi-size  custom\ bootloader.elf 
 arm-none-eabi-objdump -h -S custom\ bootloader.elf  > "custom bootloader.list"
    text	   data	    bss	    dec	    hex	filename
-   9204	     12	   1924	  11140	   2b84	custom bootloader.elf
+  12348	     20	   1956	  14324	   37f4	custom bootloader.elf
 Finished building: default.size.stdout
  
 Finished building: custom bootloader.list
  
 
-01:45:20 Build Finished. 0 errors, 0 warnings. (took 557ms)
+23:40:09 Build Finished. 0 errors, 10 warnings. (took 548ms)
 
