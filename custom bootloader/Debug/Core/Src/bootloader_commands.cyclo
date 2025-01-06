@@ -1,0 +1,12 @@
+../Core/Src/bootloader_commands.c:3:6:bootloader_handle_memwrite_cmd	1
+../Core/Src/bootloader_commands.c:4:6:bootloader_handle_flasherase_cmd	1
+../Core/Src/bootloader_commands.c:5:6:bootloader_handle_gotoaddress_cmd	1
+../Core/Src/bootloader_commands.c:6:6:bootloader_handle_getrdpstatus	1
+../Core/Src/bootloader_commands.c:7:6:bootloader_handle_getcid_cmd	1
+../Core/Src/bootloader_commands.c:8:6:bootloader_handle_gethelp_cmd	1
+../Core/Src/bootloader_commands.c:9:6:bootloader_handle_getver_cmd	1
+../Core/Src/bootloader_commands.c:10:6:bootloader_handle_disrwprotect_cmd	1
+../Core/Src/bootloader_commands.c:11:6:bootloader_handle_otpread_cmd	1
+../Core/Src/bootloader_commands.c:12:6:bootloader_handle_readsectorstatus_cmd	1
+../Core/Src/bootloader_commands.c:13:6:bootloader_handle_memread_cmd	1
+../Core/Src/bootloader_commands.c:14:6:bootloader_handle_enrwprotect_cmd	1

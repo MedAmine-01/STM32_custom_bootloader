@@ -22,6 +22,7 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include "string.h"
+#include "bootloader_commands.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -61,7 +62,8 @@ static void MX_USART2_UART_Init(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-
+#define BL_RX_LEN	200
+uint8_t bl_rx_buffer[BL_RX_LEN];
 /* USER CODE END 0 */
 
 /**
@@ -107,7 +109,54 @@ int main(void)
 }
 
 void bootloader_uart_read_data(){
-
+	uint8_t rec_len =0;
+	while(1){
+		memset(bl_rx_buffer,0, (size_t) BL_RX_LEN);
+		//read the 1st byte (length to follow)
+		HAL_UART_Receive(&huart2, bl_rx_buffer, 1, HAL_MAX_DELAY);
+		rec_len = bl_rx_buffer[0];
+		//recieve the packet
+		HAL_UART_Receive(&huart2, &bl_rx_buffer[1], rec_len, HAL_MAX_DELAY);
+		//command code
+		switch(bl_rx_buffer[1]){
+			case BL_GET_VER:
+				bootloader_handle_getver_cmd();
+				break;
+			case BL_GET_HELP:
+				bootloader_handle_gethelp_cmd();
+				break;
+			case BL_GET_CID:
+				bootloader_handle_getcid_cmd();
+				break;
+			case BL_GET_RDP_STATUS:
+				bootloader_handle_getrdpstatus();
+				break;
+			case BL_GO_TO_ADDRESS:
+				bootloader_handle_gotoaddress_cmd();
+				break;
+			case BL_FLASH_ERASE:
+				bootloader_handle_flasherase_cmd();
+				break;
+			case BL_MEM_WRITE:
+				bootloader_handle_memwrite_cmd();
+				break;
+			case BL_EN_R_W_PROTECT:
+				bootloader_handle_enrwprotect_cmd();
+				break;
+			case BL_MEM_READ:
+				bootloader_handle_memread_cmd();
+				break;
+			case BL_READ_SECTOR_STATUS:
+				bootloader_handle_readsectorstatus_cmd();
+				break;
+			case BL_OTP_READ:
+				bootloader_handle_otpread_cmd();
+				break;
+			case BL_DIS_R_W_PROTECT:
+				bootloader_handle_disrwprotect_cmd();
+				break;
+		}
+	}
 }
 
 void bootloader_jump_to_user_app(){
