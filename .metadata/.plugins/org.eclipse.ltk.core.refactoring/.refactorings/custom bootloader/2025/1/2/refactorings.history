@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<session version="1.0">
-<refactoring comment="Rename resource &apos;custom bootloader/Core/Inc/bootloader_command.h&apos; to &apos;bootloader_commands.h&apos;" description="Rename resource &apos;bootloader_command.h&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="Core/Inc/bootloader_command.h" name="bootloader_commands.h" stamp="1736123812209" updateReferences="true"/>
-</session>
