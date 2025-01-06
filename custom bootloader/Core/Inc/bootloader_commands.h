@@ -10,19 +10,22 @@
 
 #include "stm32f4xx_hal.h"
 
+#define BL_GET_VER					0x31
+#define BL_GET_HELP					0x32
+#define BL_GET_CID					0x33
+#define BL_GET_RDP_STATUS			0x34
+#define BL_GO_TO_ADDRESS			0x35
+#define BL_FLASH_ERASE				0x36
+#define BL_MEM_WRITE				0x37
 #define BL_OTP_READ 				0x27
 #define BL_READ_SECTOR_STATUS		0x28
 #define BL_MEM_READ 				0x29
 #define BL_EN_R_W_PROTECT			0x2A
-#define BL_MEM_WRITE				0x2B
-#define BL_FLASH_ERASE				0x2C
-#define BL_GO_TO_ADDRESS			0x2D
-#define BL_GET_RDP_STATUS			0x2E
-#define BL_GET_CID					0x2F
-#define BL_GET_HELP					0x30
-#define BL_GET_VER					0x31
-#define BL_DIS_R_W_PROTECT			0x32
+#define BL_DIS_R_W_PROTECT			0x30
 
+
+#define ADDRESS_VALID				0X1
+#define ADDRESS_INVALID				0X0
 
 #define BL_VERSION					0x02
 
