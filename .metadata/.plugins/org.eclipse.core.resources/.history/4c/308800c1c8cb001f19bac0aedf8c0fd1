@@ -155,8 +155,6 @@ void bootloader_uart_read_data(){
 			case BL_DIS_R_W_PROTECT:
 				bootloader_handle_disrwprotect_cmd(bl_rx_buffer);
 				break;
-			default:
-				break;
 		}
 	}
 }
