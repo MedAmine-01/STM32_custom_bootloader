@@ -1,0 +1,31 @@
+# depslib dependency file v1.0
+1736165841 source:c:\users\user\stm32cubeide\workspace_1.16.0\stm32 host programmer\main.c
+	"main.h"
+
+1736165742 source:c:\users\user\stm32cubeide\workspace_1.16.0\stm32 host programmer\blcommands.c
+	"main.h"
+
+1736165437 c:\users\user\stm32cubeide\workspace_1.16.0\stm32 host programmer\main.h
+	<Windows.h>
+	<stdio.h>
+	<string.h>
+	<stdint.h>
+	"WindowsSerialPort.h"
+
+1736165620 c:\users\user\stm32cubeide\workspace_1.16.0\stm32 host programmer\windowsserialport.h
+
+1736165318 source:c:\users\user\stm32cubeide\workspace_1.16.0\stm32 host programmer\blreplyprocessing.c
+	"main.h"
+
+1736164131 source:c:\users\user\stm32cubeide\workspace_1.16.0\stm32 host programmer\utilities.c
+	"main.h"
+
+1736165504 source:c:\users\user\stm32cubeide\workspace_1.16.0\stm32 host programmer\fileops.c
+	"main.c"
+
+1736165841 c:\users\user\stm32cubeide\workspace_1.16.0\stm32 host programmer\main.c
+	"main.h"
+
+1736165767 source:c:\users\user\stm32cubeide\workspace_1.16.0\stm32 host programmer\windowsserialport.c
+	"main.h"
+
